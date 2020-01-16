@@ -1,0 +1,38 @@
+static int a;					//declaration of static value
+extern int b;					//declaration of extern value
+
+int Static_func(int k) {		//declaration of function
+	a = 1;						//a=1
+	k = a;						//k=a
+	return k;					//return the result
+}
+
+int Extern_func(int k) {		//declaration of function
+	b = 2;						//b=2
+	k = b;						//k=b
+	return k;					//return the result
+}
+
+
+//static — глобальная переменная в файле кода.В этом случае использование static указывает, что исходный код в других файлах, 
+//которые являются частью проекта, не может получить доступ к переменной.
+
+//extern сообщает компилятору, что следующие за ним типы и имена переменных объявляются где-то в другом месте. 
+// Т.е. extern позволяет компилятору знать о типах и именах глобальных переменных без действительного создания этих переменных.
+
+
+#include <iostream>															//include 'iostream' file
+using namespace std;														//use standard namespace
+int Static_func(int k);														//declaration of 'Static' function
+int Extern_func(int k);														//declaration of 'Extern' function
+int a = 0;																	//declaration of a value
+int b = 0;																	//declaration of a value
+
+int main() {																//decaration of main function
+	cout << "The result of 'Static' function is " << Static_func(20) << endl;//print the result
+	cout << "a = " << a << endl;											//print a
+	cout << "The result of 'Extern' function is " << Extern_func(20) << endl;//print the result
+	cout << "b = " << b << endl;											//print b
+	system("pause");	
+	return 0;
+}

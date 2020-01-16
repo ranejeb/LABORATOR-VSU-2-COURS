@@ -1,0 +1,49 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+	string str;
+	cin >> str;
+	int table[5][5];
+	for (int i = 0; i < 5; i++) {
+		for (int j = 0; j < 5; j++) {
+			table[i][j] = 5;
+		}
+	}
+	table[0][0] = table[0][1] = table[1][0] = table[1][1] = table[2][0] = table[2][1] = 1;
+	table[0][2] = table[1][2] = table[2][2] = 2;
+	table[0][3] = table[2][3] = table[3][3] = 3;
+	table[0][4] = table[2][4] = table[3][4] = 4;
+	int st = 0;
+	for (int i = 0; i < str.size(); i++) {
+		if (st == 5) {
+			break;
+		}
+		if (str[i] == 'a') {
+			st = table[st][0];
+		}
+		if (str[i] == 'b') {
+			st = table[st][1];
+		}
+		if (str[i] == 'c') {
+			st = table[st][2];
+		}
+		if (str[i] == 'd') {
+			st = table[st][3];
+		}
+		if (str[i] == 'e') {
+			st = table[st][4];
+		}
+	}
+	if (st == 4) {
+		cout << "Принадлежит E" << endl;
+	}
+	else {
+		cout << "Не принадлежит" << endl;
+	}
+	system("pause");
+	return 0;
+}
